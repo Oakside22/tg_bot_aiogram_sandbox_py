@@ -18,16 +18,12 @@ dp = Dispatcher(bot)
 def create_i_key():
     keyboard = types.InlineKeyboardMarkup(row_width=3)
     text_and_data = (
-        ('Drake', 'Drake'),
-        ('21 savage', '21 savage'),
-        ('Trippie Redd', 'Trippie Redd')
+        ('Drake', 'https://ya.ru/'),
+        ('21 savage', 'https://ya.ru/'),
+        ('Trippie Redd', 'https://ya.ru/')
     )
-    row_btns = (types.InlineKeyboardButton(text, callback_data=data) for text, data in text_and_data)
+    row_btns = (types.InlineKeyboardButton(text, url=data) for text, data in text_and_data)
     keyboard.row(*row_btns)
-    keyboard.add(
-        # url buttons have no callback data
-        types.InlineKeyboardButton('aiogram source', url='https://github.com/aiogram/aiogram'),
-    )
     return keyboard
 
 
